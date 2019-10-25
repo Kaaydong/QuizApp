@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -20,19 +21,27 @@ public class MainActivity extends AppCompatActivity {
 //    private String lastName;
     private String jsonFileText;
     private TextView textDisplayQuestion, textScore;
-    private Button buttonTrue, buttonFalse;
+    private Button buttonTrue, buttonFalse, buttonStart;
+    private List<Question> questionList;
+    private int questionNumber, score;
+    private boolean questionAnswer, gameStart, gameRepeat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         wireWidgets();
+        setListeners();
 
         // https://stackoverflow.com/questions/15912825/how-to-read-file-from-res-raw-by-name#new-answer?newreg=ff2c26d632b245888d8a8c5b3de3dd06
         InputStream jsonInputStream = getResources().openRawResource(R.raw.questions);
         jsonFileText = readTextFile(jsonInputStream);
 
-        textDisplayQuestion.setText(jsonFileText);
+        createGson();
+
+        buttonFalse.setVisibility(View.INVISIBLE);
+        buttonTrue.setVisibility(View.INVISIBLE);
+        textScore.setVisibility(View.INVISIBLE);
     }
 
     private void wireWidgets()
@@ -41,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         textScore = findViewById(R.id.textView_main_score);
         buttonFalse = findViewById(R.id.button_main_false);
         buttonTrue = findViewById(R.id.button_main_true);
+        buttonStart = findViewById(R.id.button_main_start);
     }
 
     // https://stackoverflow.com/questions/15912825/how-to-read-file-from-res-raw-by-name#new-answer?newreg=ff2c26d632b245888d8a8c5b3de3dd06
@@ -66,10 +76,104 @@ public class MainActivity extends AppCompatActivity {
 // read your json file into an array of questions
         Question[] questions =  gson.fromJson(jsonFileText, Question[].class);
 // convert your array to a list using the Arrays utility class
-        List<Question> questionList = Arrays.asList(questions);
+        questionList = Arrays.asList(questions);
 // verify that it read everything properly
         Log.d("O no", "onCreate: " + questionList.toString());
     }
 
+    public void updateQuestion(int number)
+    {
+        buttonStart.setVisibility(View.INVISIBLE);
+        Question point = questionList.get(number);
+        textDisplayQuestion.setText(point.returnQuestion());
+        questionAnswer = point.returnAnswer();
+    }
 
+    public void setListeners()
+    {
+        buttonTrue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                buttonStart.setVisibility(View.VISIBLE);
+                buttonFalse.setVisibility(View.INVISIBLE);
+                buttonTrue.setVisibility(View.INVISIBLE);
+
+                questionNumber++;
+
+                    if (questionAnswer == true) {
+                        score++;
+                        textScore.setText(score + "");
+                        textDisplayQuestion.setText("CORRECT");
+
+                    } else {
+                        textDisplayQuestion.setText(questionList.get(questionNumber - 1).returnAfterStatement());
+                    }
+
+            }
+        });
+        buttonFalse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                buttonStart.setVisibility(View.VISIBLE);
+                buttonFalse.setVisibility(View.INVISIBLE);
+                buttonTrue.setVisibility(View.INVISIBLE);
+
+                questionNumber++;
+                if(questionAnswer == false)
+                {
+                    score++;
+                    textScore.setText(score+"");
+                    textDisplayQuestion.setText("CORRECT");
+
+                }
+                else
+                {
+                    textDisplayQuestion.setText(questionList.get(questionNumber-1).returnAfterStatement());
+                }
+            }
+        });
+        buttonStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (gameRepeat == true)
+                {
+                    gameRepeat = false;
+                    score = 0;
+                    questionNumber = 0;
+                    updateQuestion(0);
+                    buttonStart.setText("Next");
+                    textScore.setText("0");
+                    buttonFalse.setVisibility(View.VISIBLE);
+                    buttonTrue.setVisibility(View.VISIBLE);
+                    textScore.setVisibility(View.VISIBLE);
+                }
+                else {
+                    if (questionNumber == 10) {
+                        buttonStart.setText("Retry");
+                        buttonFalse.setVisibility(View.INVISIBLE);
+                        buttonTrue.setVisibility(View.INVISIBLE);
+                        textScore.setVisibility(View.INVISIBLE);
+                        textDisplayQuestion.setText("Your score was " + score + "/10\n Would you like to go again?");
+                        gameRepeat = true;
+                    }
+                    else {
+
+                        buttonFalse.setVisibility(View.VISIBLE);
+                        buttonTrue.setVisibility(View.VISIBLE);
+                        textScore.setVisibility(View.VISIBLE);
+
+                        if (gameStart == false) {
+                            gameStart = true;
+                            buttonStart.setText("Next");
+                            updateQuestion(0);
+
+                        }
+                        else {
+                            updateQuestion(questionNumber);
+                        }
+                    }
+                }
+            }
+        });
+    }
 }

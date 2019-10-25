@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Quiz App</string>
-    <string name="true">True</string>
-    <string name="false">False</string>
-    <string name="_0">0</string>
-    <string name="welcome_to_the_anime_quiz_game">Welcome To The Anime Quiz Game!</string>
+    <string name="True">True</string>
+    <string name="False">False</string>
+    <string name="_0" translatable="false">0</string>
+    <string name="welcome_to_the_anime_quiz_game" translatable="false">Welcome To The Anime Quiz Game!</string>
+    <string name="start" translatable="false">Start</string>
+    <string name="next" translatable="false">Next</string>
+    <string name="CORRECT" translatable="false">CORRECT!</string>
 </resources>

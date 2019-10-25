@@ -3,10 +3,10 @@ package com.example.quizapp;
 public class Question {
 
     private String question;
-    private String answer;
+    private boolean answer;
     private String afterStatement;
 
-    public Question(String question, String answer, String afterStatement)
+    public Question(String question, boolean answer, String afterStatement)
     {
         this.question = question;
         this.answer = answer;
@@ -23,7 +23,7 @@ public class Question {
         return afterStatement;
     }
 
-    public String returnAnswer()
+    public boolean returnAnswer()
     {
         return answer;
     }

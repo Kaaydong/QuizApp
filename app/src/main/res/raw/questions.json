@@ -1,14 +1,14 @@
 [
-  {"question":"Rem is better then Emilia." ,"answer":"True","afterStatement": "-Rem best girl."},
-  {"question":" Rikka Takarada has nice thighs." ,"answer":"True","afterStatement": "-Have you seen them!?"},
-  {"question":"Megumin is more useful than Aqua." ,"answer":"False","afterStatement": "-At least Aqua is hot."},
-  {"question":"Senko-san has a tail that can cure all depression." ,"answer":"True","afterStatement": "-Her tail is SOOOOO fluffy."},
-  {"question":"The Melancholy of Haruhi Suzumiya was painful to watch." ,"answer":"True","afterStatement": "-Try watching episode 12-19"},
-  {"question":"Nayuta Kani impersonates a raccoon." ,"answer":"False","afterStatement": "-Her hair pretty much are cat ears."},
-  {"question":"Everything in Domestic Girlfriend was completely LEGAL." ,"answer":"False","afterStatement": "-The dood literally falls in love with his teacher/older sister."},
-  {"question":"Sakura Matou is more powerful than Rin Tohsaka." ,"answer":"True","afterStatement": "-Sakura pretty much one shots Gil."},
-  {"question":"Miku Nakano is the smartest of her 4 siblings." ,"answer":"True","afterStatement": "-It was mentioned episode 1 or 2."},
-  {"question":"Artoria Pendragon is the mother of Mordred." ,"answer":"-Merlin kind of gave her a penis so she is actually the father.","afterStatement": "False"},
-  {"question":"Sasaki Kojiro was killed by Okita Souji." ,"answer":"-He was killed by Musashi.","afterStatement": "False"}
+  {"question":"Rem is better then Emilia." ,"answer": true ,"afterStatement": "-Rem best girl."},
+  {"question":" Rikka Takarada has nice thighs." ,"answer": true ,"afterStatement": "-Have you seen them!?"},
+  {"question":"Megumin is more useful than Aqua." ,"answer":false,"afterStatement": "-At least Aqua is hot."},
+  {"question":"Senko-san has a tail that can cure all depression." ,"answer":true,"afterStatement": "-Her tail is SOOOOO fluffy."},
+  {"question":"The Melancholy of Haruhi Suzumiya was painful to watch." ,"answer":true,"afterStatement": "-Try watching episode 12-19"},
+  {"question":"Nayuta Kani impersonates a raccoon." ,"answer":false,"afterStatement": "-Her hair pretty much are cat ears."},
+  {"question":"Everything in Domestic Girlfriend was completely LEGAL." ,"answer":false,"afterStatement": "-The dood literally falls in love with\n his teacher/older sister."},
+  {"question":"Sakura Matou is more powerful than Rin Tohsaka." ,"answer":true,"afterStatement": "-Sakura pretty much one shots Gil."},
+  {"question":"Miku Nakano is the smartest of her 4 siblings." ,"answer":true,"afterStatement": "-It was mentioned episode 1 or 2."},
+  {"question":"Artoria Pendragon is the mother of Mordred." ,"answer": false,"afterStatement": "-Merlin kind of gave her a penis so she is\n actually the father."},
+  {"question":"Sasaki Kojiro was killed by Okita Souji." ,"answer": false,"afterStatement": "-He was killed by Musashi."}
 
 ]
