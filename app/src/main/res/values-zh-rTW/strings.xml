@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Quiz App</string>
-    <string name="True" translatable="false">對</string>
+    <string name="app_name">測驗申請</string>
+    <string name="True" >對</string>
     <string name="False">錯</string>
+    <string name="welcome_to_the_anime_quiz_game">歡迎來到動漫問答遊戲！</string>
+    <string name="next">下一個</string>
+    <string name="start">開始</string>
+    <string name="Retry">重試</string>
+    <string name="CORRECT">正確答案!</string>
+    <string name="YourScore">您的分數是 </string>
+    <string name="TryAgain">您想再試一次嗎？</string>
 </resources>

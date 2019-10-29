@@ -3,8 +3,11 @@
     <string name="True">True</string>
     <string name="False">False</string>
     <string name="_0" translatable="false">0</string>
-    <string name="welcome_to_the_anime_quiz_game" translatable="false">Welcome To The Anime Quiz Game!</string>
-    <string name="start" translatable="false">Start</string>
-    <string name="next" translatable="false">Next</string>
-    <string name="CORRECT" translatable="false">CORRECT!</string>
+    <string name="welcome_to_the_anime_quiz_game">Welcome To The Anime Quiz Game!</string>
+    <string name="start">Start</string>
+    <string name="next">Next</string>
+    <string name="CORRECT">CORRECT!</string>
+    <string name="Retry">Retry</string>
+    <string name="YourScore">Your score was </string>
+    <string name="TryAgain">Would you like to try again?</string>
 </resources>

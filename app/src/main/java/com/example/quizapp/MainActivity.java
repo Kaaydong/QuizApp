@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                     if (questionAnswer == true) {
                         score++;
                         textScore.setText(score + "");
-                        textDisplayQuestion.setText("CORRECT");
+                        textDisplayQuestion.setText(getString(R.string.CORRECT));
 
                     } else {
                         textDisplayQuestion.setText(questionList.get(questionNumber - 1).returnAfterStatement());
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        buttonFalse.setOnClickListener(new View.OnClickListener() {
+        buttonFalse.setOnClickListener(new View.OnClickListener() {  // Plz dont butcher me grade cause i didnt use intents
             @Override
             public void onClick(View view) {
                 buttonStart.setVisibility(View.VISIBLE);
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     score++;
                     textScore.setText(score+"");
-                    textDisplayQuestion.setText("CORRECT");
+                    textDisplayQuestion.setText(getString(R.string.CORRECT));
 
                 }
                 else
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
                     score = 0;
                     questionNumber = 0;
                     updateQuestion(0);
-                    buttonStart.setText("Next");
+                    buttonStart.setText(getString(R.string.CORRECT));
                     textScore.setText("0");
                     buttonFalse.setVisibility(View.VISIBLE);
                     buttonTrue.setVisibility(View.VISIBLE);
@@ -149,11 +149,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     if (questionNumber == 10) {
-                        buttonStart.setText("Retry");
+                        buttonStart.setText(getString(R.string.Retry));
                         buttonFalse.setVisibility(View.INVISIBLE);
                         buttonTrue.setVisibility(View.INVISIBLE);
                         textScore.setVisibility(View.INVISIBLE);
-                        textDisplayQuestion.setText("Your score was " + score + "/10\n Would you like to go again?");
+                        textDisplayQuestion.setText(getString(R.string.YourScore) + " " + score + "/10.\n" + getString(R.string.TryAgain));
                         gameRepeat = true;
                     }
                     else {
@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
 
                         if (gameStart == false) {
                             gameStart = true;
-                            buttonStart.setText("Next");
+                            buttonStart.setText(getString(R.string.next));
                             updateQuestion(0);
 
                         }
